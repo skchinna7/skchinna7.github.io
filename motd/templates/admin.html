@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Admin Panel - Word Management</h1>
+
+    <!-- Add New Word Form -->
+    <form method="POST" action="/add_word">
+        <input type="text" name="word" placeholder="Word" required>
+        <input type="text" name="meaning" placeholder="Meaning" required>
+        <button type="submit">Add Word</button>
+    </form>
+
+    <!-- Word List -->
+    <h2>Existing Words</h2>
+    <ul>
+        {% for word in words %}
+        <li>
+            <strong>{{ word.word }}</strong>: {{ word.meaning }}
+            <form method="POST" action="/delete_word/{{ word.id }}" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
