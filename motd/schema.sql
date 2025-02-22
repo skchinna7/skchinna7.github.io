@@ -1,5 +1,0 @@
-CREATE TABLE words (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    word TEXT NOT NULL,
-    meaning TEXT NOT NULL
-);
